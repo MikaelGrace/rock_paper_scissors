@@ -73,12 +73,12 @@ function playGame () {
 
     console.log("The Human Score is " + humanScore + ". The Computer Score is " + computerScore);
 
-    // if (humanScore > computerScore) {
-    //     alert("The Human is the winner");
-    // }
-    // else if (computerScore > humanScore) {
-    //     alert("The Computer is the winner");
-    // }
+    if (humanScore > computerScore) {
+        alert("The Human is the winner");
+    }
+    else if (computerScore > humanScore) {
+        alert("The Computer is the winner");
+    }
 }
 
 playGame();
