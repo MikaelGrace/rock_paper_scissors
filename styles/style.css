@@ -1,0 +1,30 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    
+}
+
+h1 {
+    background-color: brown;
+    color: #e5e7eb;
+    text-align: center;
+}
+
+button {
+    background-color: #3882f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 10px;
+    color: #e5e7eb;
+}
+
+
+.choices {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 400px;
+}
+

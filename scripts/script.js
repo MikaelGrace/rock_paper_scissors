@@ -1,4 +1,5 @@
 const container = document.querySelector(".container");
+const choicesDiv = document.querySelector(".choices");
 
 //initializing the human score and the computer score
 let humanScore = 0;
@@ -24,7 +25,7 @@ function getComputerChoice () {
     let randomNumber = Math.floor(Math.random() * choices.length);
 
     computerChoice.textContent = "Computer choice is " + choices[randomNumber];
-    container.appendChild(computerChoice);
+    choicesDiv.appendChild(computerChoice);
     return choices[randomNumber];
 
 }
@@ -34,7 +35,7 @@ function getHumanChoice (choice) {
 
     humanChoice.textContent = "Human choice is " + choice;
 
-    container.appendChild(humanChoice);
+    choicesDiv.appendChild(humanChoice);
     return () => choice;
 
     
