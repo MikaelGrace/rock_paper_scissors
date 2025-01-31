@@ -2,6 +2,9 @@ const container = document.querySelector(".container");
 const choicesDiv = document.querySelector(".choices");
 const playGameButton = document.querySelector("#playGame");
 const intro = document.querySelector(".intro");
+const scores = document.querySelector(".scores");
+const humanScoreDisplay = document.querySelector(".human-score");
+const computerScoreDisplay = document.querySelector(".computer-score");
 
 //initializing the human score and the computer score
 let humanScore = 0;
@@ -16,12 +19,14 @@ const scissors = document.querySelector(".scissors");
 rock.style.display = "none";
 paper.style.display = "none";
 scissors.style.display = "none";
+scores.style.display = "none";
 
 
 playGameButton.addEventListener("click", () => {
     rock.style.display = "inline";
     paper.style.display = "inline";
     scissors.style.display = "inline";
+    scores.style.display = "inline";
     intro.style.display = "none";
     playGameButton.style.display = "none";
 })
@@ -106,6 +111,8 @@ function playRound(humanChoice, computerChoice) {
         computerScore += 1;
     }
 
+    humanScoreDisplay.textContent = humanScore;
+    computerScoreDisplay.textContent = computerScore;
 
     // console.log("Human score is: " + humanScore);
     // console.log("Computer score is: " + computerScore);
