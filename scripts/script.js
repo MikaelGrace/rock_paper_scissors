@@ -1,16 +1,30 @@
 const container = document.querySelector(".container");
 const choicesDiv = document.querySelector(".choices");
+const playGameButton = document.querySelector("#playGame");
+const intro = document.querySelector(".intro");
 
 //initializing the human score and the computer score
 let humanScore = 0;
 let computerScore = 0;
 
 
-const buttons = document.querySelectorAll("button");
-// const rock = document.querySelector("#rock");
-// const paper = document.querySelector("#paper");
-// const scissors = document.querySelector("#scissors");
+const buttons = document.querySelectorAll(".btn");
+const rock = document.querySelector(".rock");
+const paper = document.querySelector(".paper");
+const scissors = document.querySelector(".scissors");
 
+rock.style.display = "none";
+paper.style.display = "none";
+scissors.style.display = "none";
+
+
+playGameButton.addEventListener("click", () => {
+    rock.style.display = "inline";
+    paper.style.display = "inline";
+    scissors.style.display = "inline";
+    intro.style.display = "none";
+    playGameButton.style.display = "none";
+})
 buttons.forEach ((button) => {
     button.addEventListener("click", () => {
         const userChoice = getHumanChoice(button.textContent.toLowerCase());
