@@ -26,6 +26,21 @@ button {
     border-radius: 10px;
     padding: 10px;
     color: #ffffff;
+
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 6px #00000033;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #2764c2;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px #00000033;
+}
+
+button:focus {
+    outline: 3px solid #3882f699;
 }
 
 .scores {
@@ -38,7 +53,7 @@ button {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 400px;
+    width: 500px;
     margin: 0 auto;
 }
 

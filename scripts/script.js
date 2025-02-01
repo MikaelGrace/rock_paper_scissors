@@ -42,6 +42,9 @@ playGameButton.addEventListener("click", () => {
 })
 buttons.forEach ((button) => {
     button.addEventListener("click", () => {
+        if (winnerDisplay) {
+            winnerDisplay.remove();
+        }
         const userChoice = getHumanChoice(button.textContent.toLowerCase());
         playRound(userChoice, getComputerChoice());
     })
