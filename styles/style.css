@@ -20,13 +20,16 @@ h1 {
 .rps-buttons {
     text-align: center;
 }
+.exit {
+    margin-left: auto;
+}
 
 button {
     background-color: #3882f6;
-    border: 1px solid #ffffff;
+    border: 1px solid #e5e7eb;
     border-radius: 10px;
     padding: 10px;
-    color: #e5e7eb;
+    color: #ffffff;
 }
 
 .scores {

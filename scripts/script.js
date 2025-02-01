@@ -5,10 +5,14 @@ const intro = document.querySelector(".intro");
 const scores = document.querySelector(".scores");
 const humanScoreDisplay = document.querySelector(".human-score");
 const computerScoreDisplay = document.querySelector(".computer-score");
+const winnerDisplay = document.createElement("p");
 
 //initializing the human score and the computer score
 let humanScore = 0;
 let computerScore = 0;
+
+humanScoreDisplay.textContent = 0;
+computerScoreDisplay.textContent = 0;
 
 
 const buttons = document.querySelectorAll(".btn");
@@ -38,27 +42,35 @@ buttons.forEach ((button) => {
 });
 
 
+
+const computerChoicePara = document.createElement("p");
 function getComputerChoice () {
-    const computerChoice = document.createElement("p");
+    
     let choices = ["rock", "paper", "scissors"];
     let randomNumber = Math.floor(Math.random() * choices.length);
 
-    computerChoice.textContent = "Computer choice is " + choices[randomNumber];
-    choicesDiv.appendChild(computerChoice);
+    computerChoicePara.textContent = "Computer choice is " + choices[randomNumber];
+    choicesDiv.appendChild(computerChoicePara);
     return choices[randomNumber];
 
 }
 
+const humanChoicePara = document.createElement("p");
 function getHumanChoice (choice) {
-    const humanChoice = document.createElement("p");
+    
+    
+    humanChoicePara.textContent = "Human choice is " + choice;
 
-    humanChoice.textContent = "Human choice is " + choice;
-
-    choicesDiv.appendChild(humanChoice);
+    choicesDiv.appendChild(humanChoicePara);
     return () => choice;
 
     
 }
+
+computerChoicePara.style.padding = "10px";
+humanChoicePara.style.padding = "10px"
+computerChoicePara.style.color = "white";
+humanChoicePara.style.color = "white";
 
 // if (humanScore === 5) {
 //     alert("The Human is the winner");
@@ -89,26 +101,38 @@ function playRound(humanChoice, computerChoice) {
     
     if (humanChoice() === "rock" && computerChoice === "scissors") {
         humanScore += 1;
+        humanChoicePara.style.backgroundColor = "green";
+        computerChoicePara.style.backgroundColor = "red";
     }
 
     else if (humanChoice() === "scissors" && computerChoice === "paper") {
         humanScore += 1;
+        humanChoicePara.style.backgroundColor = "green";
+        computerChoicePara.style.backgroundColor = "red";
     }
 
     else if (humanChoice() === "paper" && computerChoice === "rock") {
         humanScore += 1;
+        humanChoicePara.style.backgroundColor = "green";
+        computerChoicePara.style.backgroundColor = "red";
     }
 
     else if (computerChoice === "rock" && humanChoice() === "scissors") {
         computerScore += 1;
+        computerChoicePara.style.backgroundColor = "green";
+        humanChoicePara.style.backgroundColor = "red";
     }
 
     else if (computerChoice === "scissors" && humanChoice() === "paper") {
         computerScore += 1;
+        computerChoicePara.style.backgroundColor = "green";
+        humanChoicePara.style.backgroundColor = "red";
     }
 
     else if (computerChoice === "paper" && humanChoice() === "rock") {
         computerScore += 1;
+        computerChoicePara.style.backgroundColor = "green";
+        humanChoicePara.style.backgroundColor = "red";
     }
 
     humanScoreDisplay.textContent = humanScore;
@@ -120,13 +144,30 @@ function playRound(humanChoice, computerChoice) {
     if (humanScore === 5) {
         humanScore = 0;
         computerScore = 0;
-        alert ("Human is the winner");
+        humanScoreDisplay.textContent = 0;
+        computerScoreDisplay.textContent = 0;
+        // choicesDiv.removeChild(computerChoicePara);
+        // choicesDiv.removeChild(humanChoicePara);
+        //choicesDiv.remove();
+        winnerDisplay.textContent = ("Human is the winner");
+        scores.appendChild(winnerDisplay);
+
+        //alert ("Human is the winner");
     }
     
     else if (computerScore === 5) {
         humanScore = 0;
         computerScore = 0;
-        alert("Computer is the winner");
+        humanScoreDisplay.textContent = 0;
+        computerScoreDisplay.textContent = 0;
+        // choicesDiv.removeChild(computerChoicePara);
+        // choicesDiv.removeChild(humanChoicePara);
+        //choicesDiv.remove();
+
+        winnerDisplay.textContent = ("Computer is the winner");
+        scores.appendChild(winnerDisplay);
+
+        //alert("Computer is the winner");
     }
 
 
