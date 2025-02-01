@@ -7,6 +7,12 @@ const humanScoreDisplay = document.querySelector(".human-score");
 const computerScoreDisplay = document.querySelector(".computer-score");
 const winnerDisplay = document.createElement("p");
 
+
+winnerDisplay.style.backgroundColor = "green";
+winnerDisplay.style.padding = "10px";
+winnerDisplay.style.color = "white";
+winnerDisplay.style.margin = "0 auto";
+
 //initializing the human score and the computer score
 let humanScore = 0;
 let computerScore = 0;
@@ -135,6 +141,11 @@ function playRound(humanChoice, computerChoice) {
         humanChoicePara.style.backgroundColor = "red";
     }
 
+    else if (computerChoice === humanChoice()) {
+        computerChoicePara.style.backgroundColor = "grey";
+        humanChoicePara.style.backgroundColor = "grey";
+    }
+
     humanScoreDisplay.textContent = humanScore;
     computerScoreDisplay.textContent = computerScore;
 
@@ -150,7 +161,7 @@ function playRound(humanChoice, computerChoice) {
         // choicesDiv.removeChild(humanChoicePara);
         //choicesDiv.remove();
         winnerDisplay.textContent = ("Human is the winner");
-        scores.appendChild(winnerDisplay);
+        choicesDiv.appendChild(winnerDisplay);
 
         //alert ("Human is the winner");
     }
@@ -165,7 +176,7 @@ function playRound(humanChoice, computerChoice) {
         //choicesDiv.remove();
 
         winnerDisplay.textContent = ("Computer is the winner");
-        scores.appendChild(winnerDisplay);
+        choicesDiv.appendChild(winnerDisplay);
 
         //alert("Computer is the winner");
     }
